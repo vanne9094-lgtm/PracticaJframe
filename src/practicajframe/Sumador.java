@@ -4,6 +4,8 @@
  */
 package practicajframe;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author vanne
@@ -69,10 +71,22 @@ public class Sumador extends javax.swing.JFrame {
         jButtonSumar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jButtonSumar.setForeground(new java.awt.Color(204, 51, 255));
         jButtonSumar.setText("SUMAR");
+        jButtonSumar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButtonSumar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSumarActionPerformed(evt);
+            }
+        });
 
         jButtonLimpiar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jButtonLimpiar.setForeground(new java.awt.Color(204, 51, 255));
         jButtonLimpiar.setText("LIMPIAR");
+        jButtonLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimpiarActionPerformed(evt);
+            }
+        });
 
         jLabelResultado.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabelResultado.setText("RESULTADO");
@@ -82,26 +96,26 @@ public class Sumador extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jButtonSumar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addComponent(jButtonLimpiar)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
+                .addComponent(jButtonSumar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jButtonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
                 .addComponent(jLabelResultado)
-                .addGap(74, 74, 74))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSumar)
                     .addComponent(jButtonLimpiar))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelResultado)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,9 +153,9 @@ public class Sumador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextFieldNro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -154,6 +168,28 @@ public class Sumador extends javax.swing.JFrame {
     private void jTextFieldNro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNro1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNro1ActionPerformed
+
+    private void jButtonSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSumarActionPerformed
+try{
+        int nro1=Integer.parseInt(jTextFieldNro1.getText());
+        int nro2=Integer.parseInt(jTextFieldNro2.getText());
+        int resultado=nro1+nro2;
+        jLabelResultado.setText(resultado +" ");
+}catch (NumberFormatException nf){
+JOptionPane.showMessageDialog(this, "debe ingresar numeros enteros");
+jTextFieldNro1.setText("");
+jTextFieldNro2.setText("");
+}
+
+
+
+    }//GEN-LAST:event_jButtonSumarActionPerformed
+
+    private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
+      jTextFieldNro1.setText("");
+      jTextFieldNro2.setText("");
+      jLabelResultado.setText("RESULTADO");
+    }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
